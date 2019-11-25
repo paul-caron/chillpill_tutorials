@@ -144,4 +144,4 @@ reset commit history, the staged snapshot and the working files
 git reset --hard
 ```
 
-&copy Paul Caron , aka ChillPill
+©️Paul Caron , aka ChillPill
