@@ -1,5 +1,7 @@
 # ChillPill's Markdown Instructables
+
 Proudly presents: 
+
 ![git logo](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg)
 # Git
 [Git](https://git-scm.com/) is a version control system. It allows to keep track of all the steps taken during development of a program.
