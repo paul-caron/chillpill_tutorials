@@ -81,7 +81,7 @@ git status
 ### remote
 Connects to remote repository or to list currently connected repositories
 ```
-git remote add origin master &lt; server &gt;
+git remote add origin master < server >
 
 git remote -v
 ```
@@ -97,25 +97,25 @@ List branches, create new branch, delete a branch
 ```
 git branch
 
-git branch &lt; new branch name &gt;
+git branch < new branch name >
 
-git branch -d &lt; branch name to be deleted &gt;
+git branch -d < branch name to be deleted >
 ```
 
 ### merge
 Merge a different branch into the active one
 ```
-git merge &lt; branch name &gt;
+git merge < branch name >
 ```
 
 ### checkout
 Switch to another branch
 ```
-git checkout &lt; branch name &gt;
+git checkout < branch name >
 ```
 or create a new branch and switch to it as current working branch
 ```
-git checkout -b &lt; new branch name &gt;
+git checkout -b < new branch name >
 ```
 
 ### fetch
