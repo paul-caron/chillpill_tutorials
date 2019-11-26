@@ -174,4 +174,4 @@ function hello(){
 - [x] completed
 - [ ] incomplete
 
-&copy Paul Caron, aka ChillPill
+©️ Paul Caron, aka ChillPill
