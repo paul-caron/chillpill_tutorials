@@ -10,8 +10,6 @@ So here are some general lines to follow to get a server running.
 
 To buy a domain, you need to buy it through a registrar. Choose any registrar as it doesnt matter where you buy it really. You can get a domain for as low as 0.99$ (as advertised on some site's promo). Keeping in mind though that some registrars offer different endings that others dont have (.io, .dev). A good classic **.com** is usually cheaper, same with **.net**.
 
-> **Before you buy, choose a cool name** like : *myfunnycatvideos.com*.
-
 Your registrar will let you know right away if the name is available. Give the registrar your paypal /credit card info and the house keys are yours.
 
 ## Get a host
@@ -23,8 +21,6 @@ Now you have the keys, but you are still homeless. Where is your house? You have
 Some registrar company will also offer you to host your domain. The company might offer you a nice server and options like a database, a https certificate and other interesting gizmos. All for extra lots of $$$. If you're rich, then Bob's your uncle! If not, keep smiling anyway. Life is still good, as **you can host your domain anywhere else cheaper**.
 
 Some **VPS (Virtual Private Server)** can be less than 5$ per month if you shop around, or even 2$ I have seen. Depends how much you can afford for speed and power.
-> Do you really need a powerful server for *myfunnycatvideos.com?* 
->> You could just make a site that uses youtube as a sort of  database / filesystem, a site that serves only embedded links to youtube videos. A site that doesnt technically serve any videos. Therefore, no need for a powerful server.
 
 Personally, all I need is **Linux** on tin can.
 
