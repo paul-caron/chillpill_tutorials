@@ -1,0 +1,116 @@
+ ![web server](https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)
+
+# Easy steps to get your web server running
+
+While it's fresh in my memory, I'd like to share some tips with you folks. Also may this be notes for self later, when I buy other domains or VPS.
+
+So here are some general lines to follow to get a server running.
+
+## Buy a domain
+
+To buy a domain, you need to buy it through a registrar. Choose any registrar as it doesnt matter where you buy it really. You can get a domain for as low as 0.99$ (as advertised on some site's promo). Keeping in mind though that some registrars offer different endings that others dont have (.io, .dev). A good classic **.com** is usually cheaper, same with **.net**.
+
+> **Before you buy, choose a cool name** like : *myfunnycatvideos.com*.
+
+Your registrar will let you know right away if the name is available. Give the registrar your paypal /credit card info and the house keys are yours.
+
+## Get a host
+
+Now you have the keys, but you are still homeless. Where is your house? You have no address yet.
+
+**You still need to host your domain somewhere.**
+
+Some registrar company will also offer you to host your domain. The company might offer you a nice server and options like a database, a https certificate and other interesting gizmos. All for extra lots of $$$. If you're rich, then Bob's your uncle! If not, keep smiling anyway. Life is still good, as **you can host your domain anywhere else cheaper**.
+
+Some **VPS (Virtual Private Server)** can be less than 5$ per month if you shop around, or even 2$ I have seen. Depends how much you can afford for speed and power.
+> Do you really need a powerful server for *myfunnycatvideos.com?* 
+>> You could just make a site that uses youtube as a sort of  database / filesystem, a site that serves only embedded links to youtube videos. A site that doesnt technically serve any videos. Therefore, no need for a powerful server.
+
+Personally, all I need is **Linux** on tin can.
+
+If you decide to buy a VPS, again you get the paypal / credit card out and buy your VPS. 
+> Although one could make his own host in his basement for free. That is for another talk.
+
+## Make a web server
+
+Now you decided to host away from your registrar and you bought a VPS.
+
+It's highly possible that your VPS company sends you an email with your root login password for SSH. 
+
+You go in **Termux** on your phone for example and try login in. 
+```
+ssh root@myvpsserver12345.smthg.com
+password: 
+...
+connected to myvpsserver12345.smthg.com
+root:
+```
+It works! You have a server, just not a web server yet. 
+
+**You also need to install your web server.**
+
+ So go on google and find a tutorial how to install a webserver (then you probably find **Apache** and **PHP** tutorials,🤮). Better yet, maybe you know how to code a webserver in some cool programming language like **Go** or **NodeJS**. Anyway, for this, it all comes down to personal preferences.
+
+So install / code your web server. Cost 0$.
+
+## Name servers
+
+At this point you have a host machine with an IP address(example: 111.11.111.11) and a webserver running on it. So you can view a web page in a web browser with a wonky address like :
+```
+http://111.11.111.11
+```
+It works.
+
+But still nothing at *myfunnycatvideos.com*
+
+**That's because you need to change name servers.**
+
+Your registrar, upon registration of the domain, likely already assigned you some name servers that belongs to this registrar, and your host is using different name servers.
+
+Your VPS company has likely an option to list other domains registered elsewhere. You type in the domain names you would like transfered and then you receive 2 addresses : those are the name servers for your VPS.
+
+Now you can go back to the registrar, where you bought the domain, and give those name servers to do a change in the registration of that domain.
+
+Once the change initiated, some say it can take 24-48 hours for this change to propagate to the entire internet. That seems like a lie : cause it took me less than an hour. But for the domain to work, **you also need to set the records straight.**
+
+## "A" records
+
+The VPS hosting service will likely have an area like DNS zone rules.
+
+This is where you can tell this VPS company service, which machine you intend to use for a specific domain.
+
+Look for something that mentions "A records".
+
+So when setting an "A record", it can be for 
+- *@ .example.com*
+- *www .example.com*
+- *mail.example.com*
+
+And for each of those records you can set the same IP or set different IPs to have your subdomains served by different separate machines.
+
+Once the "A records" are done, you can try in the browser again.
+
+```
+- http://www.example.com
+```
+It now works but your browser gives you a warning that this site is not secure and could be phishing site or with other malicious intent.
+
+Now you can also access SSH like:
+
+```
+ssh user@example.com
+```
+
+## https and green padlock
+
+Browsers nowadays complain about site security if the site is not served through https protocol / port 443.
+
+You can half-solved the problem by creating your own self signed SSL certificates. That would allow for a SSL encrypted connection on port 443. Still the browser complains because the certificate is not signed by a recognized certicate authority.
+
+You can buy an official certificate, which is a good thing really, if you can pay 100$ a year for it or more. But Bob is not your uncle, so you gotta improvise something. Here comes ***Let's Encrypt*** and ***Certbot***. **SSL certificate for free.**
+
+I will not go over the details on how to use **Certbot** for a free **Let's Encrypt** certificate. The installation process might be different from different machines depending on the operating system. All the details can be found on [Certbot](https://certbot.eff.org/).
+
+Once you get the pair of certificate and private key, just make sure the web server knows where to find them and configurations / coding is made to use https protocol on port 443.
+
+&copy Paul Caron, aka ChillPill
