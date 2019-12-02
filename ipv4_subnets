@@ -1,0 +1,76 @@
+ ![nets](https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)
+
+# Subnets and IPv4 addresses
+
+Just a refresher of what is an IPv4 address and how it is used in subnets.
+
+## IPv4 address
+
+An IP address is an identification number given to a device and this device is connected to a network that uses internet protocol.
+
+In use since the 1980s, IPv4 is the most popular version of IP(Internet Protocol). IPv6, the most recent version, is still far behind in popularity.
+
+> The biggest problem of IPv4 is that it can only represent 4 billion IP addresses. Therefore it is impossible to give a static unique IP to everyone on Earth. In comparison IPv6 can deliver around 340 undecillion, or 340 billion billion billion billion, addresses.
+
+The strength of IPv4 is in its simplicity, which we will go over now.
+
+## Format
+
+An IPv4 address is a number. It is a single binary number of 32 bits (0s and 1s).
+
+The usual way to represent such number is with 4 octets. An octet is a binary number of 8 bits with a range of values from 0 to 255.
+
+Here are some examples of IP addresses:
+
+- 127.0.0.1
+- 192.168.0.1
+- 24.233.110.10
+
+## Classful network
+
+Just for historical reason, I will mention here that in the earlier times of IPv4, IP addresses were categorized in different classes.
+
+Addresses were classified and subnets were masked based on the first octet value (masks will be explained later):
+
+class|first octet range|default mask
+-----|-----------------|------------
+A    | 1-126           | 255.0.0.0
+B    | 128-191         | 255.255.0.0
+C    | 192-223         | 255.255.255.0
+D    | 224-239           Multicasting
+E    | 240-255           Experimental
+loopback | 127
+
+This convention is still a followed tradition today, except we dont talk about classes anymore. But our home router address is usually setup to 192.168.0.1 with a default mask at 255.255.255.0 and localhost(127.0.0.1) is on the loopback reserved spot.
+
+## CIDR
+
+Starting in 1993, CIDR (Classless Inter Domain Routing), was introduced in hopes of slowing down the exhaustion of IPv4 addresses.
+
+### Variable length subnet masking
+
+One concept introduced with IPv4/CIDR is the variable length subnet masking. 
+
+By changing the length of the mask, it becomes possible to create greater networks with more IP addresses in a subnet.
+
+### Notation
+
+Notation is basically same as explained above for IPv4. We have 4 octets separated by dots, but then follows "/" and the amounts of bits to the mask (0-32)
+
+Here are some examples :
+- 0.0.0.0/0
+- 192.168.0.15/24
+
+## Subnet masking
+
+The length in bits of the mask decides how many IPv4 addresses are available on the network.
+
+1. A 24 bits long mask is represented by 24 consecutive 1s(in a 32 bits binary number) or in octets would be :
+    - 255.255.255.0
+    - 32 minus 24, that just leaves 8 bits of possible IP addresses(256) on this network.
+
+2. A 16 bits long mask is represented by 16 consecutive 1s, or :
+    - 255.255.0.0
+    - 32 minus 16, that leaves 16 bits of possible IP addresses on this network(65536).
+
+©️ Paul Caron, aka ChillPill
